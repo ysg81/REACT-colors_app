@@ -36,6 +36,7 @@
   color: #fff;
   text-transform: uppercase;
   border: none;
+
   opacity: 0;
   transition: 0.5s;
   cursor: pointer;
