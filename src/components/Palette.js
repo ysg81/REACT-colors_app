@@ -4,8 +4,8 @@ import './Palette.css'
 import Navbar from './partial/Navbar'
 
 function Palette({palette}) {
-
-  const {colors, palettename, emoji} = palette
+  const {colors, palettename} = palette
+  console.log(palette.id)
   const [level, setLevel] = useState(500)
   const [format, setFormat] = useState("hex")
   const changeLevel = (newlevel) => {
