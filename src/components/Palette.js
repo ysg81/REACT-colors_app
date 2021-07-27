@@ -5,14 +5,14 @@ import Navbar from './partial/Navbar'
 
 function Palette({palette}) {
 
+  const {colors, palettename, emoji} = palette
   const [level, setLevel] = useState(500)
   const [format, setFormat] = useState("hex")
-  
   const changeLevel = (newlevel) => {
     setLevel(newlevel)
   }
-  const colorBoxes = palette.colors[level].map(color => (
-    <ColorBox background={color[format]} name={color.name} />
+  const colorBoxes = colors[level].map(color => (
+    <ColorBox background={color[format]} name={color.name} key={color.id} />
   ))
   const changeFormat = (val) => {
     setFormat(val)
@@ -20,11 +20,12 @@ function Palette({palette}) {
   return (
     <div className="Palette">
     <Navbar level={level} changeLevel={changeLevel} handleChange={changeFormat}/>
-      {/* Navbar */}
-      <div className="Palette-colors">
-        {colorBoxes}
-      </div>
-      {/* footer */}
+    <div className="Palette-colors">
+      {colorBoxes}
+    </div>
+    <footer className="Palette-footer">
+      {palettename}
+    </footer>
     </div>
   )
 }
