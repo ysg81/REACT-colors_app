@@ -7,6 +7,7 @@ function Palette({palette}) {
 
   const [level, setLevel] = useState(500)
   const [format, setFormat] = useState("hex")
+  
   const changeLevel = (newlevel) => {
     setLevel(newlevel)
   }
