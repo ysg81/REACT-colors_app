@@ -1,12 +1,14 @@
 import React,{useState} from 'react'
 import ColorBox from './ColorBox'
 import './Palette.css'
+import Footer from './partial/Footer'
 import Navbar from './partial/Navbar'
 
 function Palette({palette}) {
   const {colors, palettename, id} = palette
   const [level, setLevel] = useState(500)
   const [format, setFormat] = useState("hex")
+
   const changeLevel = (newlevel) => {
     setLevel(newlevel)
   }
@@ -24,13 +26,16 @@ function Palette({palette}) {
   }
   return (
     <div className="Palette">
-    <Navbar level={level} changeLevel={changeLevel} handleChange={changeFormat}/>
+    <Navbar
+      shownavbar={true}
+      level={level}
+      changeLevel={changeLevel}
+      handleChange={changeFormat}
+    />
     <div className="Palette-colors">
       {colorBoxes}
     </div>
-    <footer className="Palette-footer">
-      {palettename}
-    </footer>
+    <Footer footer={palettename}/>
     </div>
   )
 }

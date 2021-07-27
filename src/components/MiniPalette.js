@@ -54,7 +54,6 @@ function MiniPalette(props) {
   return (
     <div className={classes.container} onClick={handleClick}>
       <div className={classes.colors}>
-        {/* MINICOLORBOX */}
         {miniColorBoxes}
       </div>
       <h5 className={classes.title}>
