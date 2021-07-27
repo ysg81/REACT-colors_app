@@ -1,0 +1,15 @@
+.Palette{
+  height: 100vh;
+}
+.Palette-colors{
+  height: 90%;
+}
+
+.Palette-footer{
+  background-color: #eee;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
