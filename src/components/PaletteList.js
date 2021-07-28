@@ -50,8 +50,15 @@ const styles={
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 30%)",
-    gridGap: "5%"
+    gridGap: "5%",
   },
+  minipalette:{
+    transition: "0.3s",
+    "&:hover": {
+      transform: "translateY(-6px)",
+      boxShadow: "0px 12px 12px rgba(0,0,0,0.6)"
+    }
+  }
 
 }
 function PaletteList(props) {
@@ -69,13 +76,15 @@ function PaletteList(props) {
           <h1>React Colors</h1>
           <Link to="/palette/new">Create Palette</Link>
         </nav>
-        <div className={classes.palettes}>
+
+        <div className={classes.palettes}>  
           {palettes.map(palette => (
-            <Link to={`/palette/${palette.id}`}>
+            <Link to={`/palette/${palette.id}`} className={classes.minipalette}>
               <MiniPalette {...palette} handleClick={goToPalette} />
             </Link>
             ))}
         </div>
+
       </div>
     </div>
   )
