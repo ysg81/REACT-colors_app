@@ -6,12 +6,14 @@ import {withStyles} from '@material-ui/styles'
 const styles={
   container: {
     backgroundColor: "blue",
-    height: "100vh",
+    height: "100%",
     display: "flex",
     justifyContent: "center",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    // border: "5px solid green",
   },
   subcontainer: {
+    // border: "5px solid black",
     width: "50%",
     display: "flex",
     alignItems: "flex-start",
@@ -66,7 +68,7 @@ function PaletteList(props) {
     props.history.push(`/palette/${id}`)
   )
 
-  const {palettes} = props
+  const {palettes, deletePalette} = props
   const {classes} = props
 
   return (
@@ -80,7 +82,12 @@ function PaletteList(props) {
         <div className={classes.palettes}>  
           {palettes.map(palette => (
             <Link to={`/palette/${palette.id}`} className={classes.minipalette}>
-              <MiniPalette {...palette} handleClick={goToPalette} />
+              <MiniPalette {...palette}
+                key={palette.id}
+                id={palette.id}
+                deletePalette={deletePalette}
+                handleClick={goToPalette} 
+              />
             </Link>
             ))}
         </div>

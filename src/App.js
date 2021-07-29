@@ -17,13 +17,18 @@ function App() {
   const savePalette = (newPalette) => {
     setPalette([...palette, newPalette])
   }
+  const deletePalette = (id) => {
+    const remain = palette.filter(p => p.id !== id)
+    console.log(remain)
+    setPalette(remain)
+  }
   useEffect(() => {
     window.localStorage.setItem("palette",JSON.stringify(palette))
   }, [palette])
 
   return (
     <Switch>
-      <Route exact path="/" render={(routeProps) => <PaletteList palettes={palette} {...routeProps}/>}/>
+      <Route exact path="/" render={(routeProps) => <PaletteList palettes={palette} deletePalette={deletePalette} {...routeProps}/>}/>
       <Route exact path="/palette/new" render={(routeProps) => <NewPalette savePalette={savePalette} palettes={palette} {...routeProps}/>}/>
       <Route exact path="/palette/:id"  render={(routeProps) => (
         <Palette palette={findPalette(routeProps.match.params.id)}/> 
