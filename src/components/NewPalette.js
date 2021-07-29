@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewPalette() {
+export default function NewPalette(props) {
 
   
   const classes = useStyles();
@@ -112,7 +112,16 @@ export default function NewPalette() {
     setColors([...colors, newColor])
   }
   const handleChange = (e) => setNewName(e.target.value)
-  
+  const handleSubmit = () => {
+    let newName = "New Test Palette";
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, "-"),
+      colors: colors
+    }
+    props.savePalette(newPalette)
+    props.history.push("/")
+  }
   useEffect(() => {
     console.log(colors)
     ValidatorForm.addValidationRule('isColorNameUnique', value => 
@@ -131,6 +140,7 @@ export default function NewPalette() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
+        color='default'
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -149,6 +159,13 @@ export default function NewPalette() {
           <Typography variant="h6" noWrap>
             Persistent drawer
           </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
+            Save Palette
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
