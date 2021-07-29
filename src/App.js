@@ -19,7 +19,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" render={(routeProps) => <PaletteList palettes={palette} {...routeProps}/>}/>
-      <Route exact path="/palette/new" render={(routeProps) => <NewPalette savePalette={savePalette} {...routeProps}/>}/>
+      <Route exact path="/palette/new" render={(routeProps) => <NewPalette savePalette={savePalette} palettes={palette} {...routeProps}/>}/>
       <Route exact path="/palette/:id"  render={(routeProps) => (
         <Palette palette={findPalette(routeProps.match.params.id)}/> 
       )}/>
