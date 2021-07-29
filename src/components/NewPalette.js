@@ -89,10 +89,11 @@ export default function NewPalette(props) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [currentColor, setCurrentColor] = useState("")
-  const [colors, setColors] = useState([])
+  const [colors, setColors] = useState(props.palettes[0].colors)
   const [newColorName, setNewColorName] = useState("")
   const [newPaletteName, setNewPaletteName] = useState("")
-  
+  const [maxColor, setMaxColor] = useState(20)
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -132,11 +133,20 @@ export default function NewPalette(props) {
       color.name !== colorName
     )))
   }
+  const clearPalette = () => {
+    setColors([])
+  }
+  const addRandomColor = () => {
+    const allColor = props.palettes.map(p => p.colors).flat()
+    const idx = Math.floor(Math.random() * allColor.length)
+    const randomColor = allColor[idx]
+    setColors([...colors, randomColor])
+  }
   const onSortEnd = ({oldIndex, newIndex}) => {
     setColors(arrayMove(colors, oldIndex, newIndex))
   }
   useEffect(() => {
-    console.log(colors)
+    // console.log(colors)
     ValidatorForm.addValidationRule('isColorNameUnique', value => 
       colors.every(
         (color) => color.name.toLowerCase() !== value.toLowerCase()
@@ -212,8 +222,8 @@ export default function NewPalette(props) {
         <Divider />
         <Typography variant="h4">Design Your Palette!</Typography>
         <div>
-          <Button variant="contained" color="secondary">Clear Palette</Button>
-          <Button variant="contained" color="primary">Random Color</Button>
+          <Button variant="contained" color="secondary" onClick={clearPalette}>Clear Palette</Button>
+          <Button variant="contained" color="primary" onClick={addRandomColor} disabled={colors.length >= maxColor}>Random Color</Button>
         </div>
         <ChromePicker 
           color={currentColor}
@@ -238,9 +248,10 @@ export default function NewPalette(props) {
             variant="contained"
             type="submit"
             color="primary"
-            style={{backgroundColor: currentColor}}
+            style={{backgroundColor: colors.length >= maxColor ? "grey" : currentColor}}
+            disabled={colors.length >= maxColor}
           >
-            Add Color
+            {colors.length >= maxColor ? "Palette Full" : "Add Color"}
           </Button>
         </ValidatorForm>
       </Drawer>
