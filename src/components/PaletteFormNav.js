@@ -9,6 +9,19 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { withStyles } from '@material-ui/styles';
+
+const styles = ({
+  root: {
+    display: 'flex',
+  },
+  navBtns: {
+    position: 'absolute',
+    right: '10px',
+    top: "50%",
+    transform: "translateY(-50%)",
+  }
+})
 
 function PaletteFormNav(props) {
 
@@ -27,7 +40,7 @@ function PaletteFormNav(props) {
   }, [newPaletteName])
 
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar
         color='default'
@@ -47,8 +60,10 @@ function PaletteFormNav(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Create A Palette
           </Typography>
+        </Toolbar>
+        <div className={classes.navBtns}>
           <ValidatorForm
             onSubmit={() => handleSubmit(newPaletteName)}
             style={{display: "flex"}}
@@ -68,13 +83,13 @@ function PaletteFormNav(props) {
               Save Palette
             </Button>
             <Link to="/">
-              <Button variant="contained" color="secondary">Go Back</Button>
+              <Button variant="contained" color="secondary" style={{textDecoration: "none"}}>Go Back</Button>
             </Link>
           </ValidatorForm>
-        </Toolbar>
+        </div>
       </AppBar>
     </div>
   )
 }
 
-export default PaletteFormNav
+export default withStyles(styles)(PaletteFormNav)

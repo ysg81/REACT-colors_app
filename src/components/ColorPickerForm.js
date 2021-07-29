@@ -6,7 +6,7 @@ import { ChromePicker} from 'react-color';
 function ColorPickerForm(props) {
 
   const {paletteIsFull, addNewColor, colors} = props
-  const [currentColor, setCurrentColor] = useState("white")
+  const [currentColor, setCurrentColor] = useState("black")
   const [newColorName, setNewColorName] = useState("")
 
   const updateCurrentColor = (newColor) => {
@@ -35,36 +35,40 @@ function ColorPickerForm(props) {
     );
   }, [colors, currentColor])
   return (
-    <div>
-      <ChromePicker 
-          color={currentColor}
-          onChangeComplete={updateCurrentColor}
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center", width: "100%"}}>
+      <ChromePicker
+        color={currentColor}
+        onChangeComplete={updateCurrentColor}
         />
-        <ValidatorForm
-          onSubmit={handleSubmit}
-          style={{display: "flex"}}  
+      <ValidatorForm
+        onSubmit={handleSubmit}
+        style={{display: "flex", flexDirection: "column", width: "100%"}}
+      >
+        <TextValidator
+          placeholder="Color Name"
+          margin="normal"
+          variant="filled"
+          name="newColorName"
+          value={newColorName}
+          onChange={handleColorNameChange}
+          validators={['required', 'isColorNameUnique', 'isColorUnique']}
+          errorMessages={[
+            'Enter a color name!',
+            'Color name must be unique!',
+            'Color already used!'
+          ]}
+          style={{margin: "15px 0", backgroundColor: "rgba(0,0,0,0.1)", width: "100%", }}
+        />
+        <Button
+          variant="contained"
+          type="submit"
+          color="primary"
+          style={{backgroundColor: paletteIsFull ? "grey" : currentColor, padding: "16px 0", width: "100%"}}
+          disabled={paletteIsFull}
         >
-          <TextValidator
-            name="newColorName"
-            value={newColorName}
-            onChange={handleColorNameChange}
-            validators={['required', 'isColorNameUnique', 'isColorUnique']}
-            errorMessages={[
-              'Enter a color name!',
-              'Color name must be unique!',
-              'Color already used!'
-            ]}
-          />
-          <Button
-            variant="contained"
-            type="submit"
-            color="primary"
-            style={{backgroundColor: paletteIsFull ? "grey" : currentColor}}
-            disabled={paletteIsFull}
-          >
-            {paletteIsFull ? "Palette Full" : "Add Color"}
-          </Button>
-        </ValidatorForm>
+          <span style={{fontSize: "20px", fontWeight: "600"}}>{paletteIsFull ? "Palette Full" : "Add Color"}</span>
+        </Button>
+      </ValidatorForm>
     </div>
   )
 }

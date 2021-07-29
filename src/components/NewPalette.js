@@ -14,18 +14,18 @@ import ColorPickerForm from './ColorPickerForm';
 import { arrayMove } from 'react-sortable-hoc';
 
 
-const drawerWidth = 400;
+const drawerWidth = 350;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
+  // appBar: {
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.leavingScreen,
+  //   }),
+  // },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
@@ -72,6 +72,21 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: '100%'
+  },
+  subcontainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  btncontainer: {
+    padding: "10px",
+  }
 }));
 
 export default function NewPalette(props) {
@@ -136,22 +151,26 @@ export default function NewPalette(props) {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}>
+        <div className={classes.drawerHeader} >
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <Divider />
-        <Typography variant="h4">Design Your Palette!</Typography>
-        <div>
-          <Button variant="contained" color="secondary" onClick={clearPalette}>Clear Palette</Button>
-          <Button variant="contained" color="primary" onClick={addRandomColor} disabled={colors.length >= maxColor}>Random Color</Button>
+        <div className={classes.container}>
+          <div className={classes.subcontainer}>
+            <Typography variant="h4">Design Your Palette!</Typography>
+            <div className={classes.btncontainer}>
+              <Button variant="contained" color="secondary" onClick={clearPalette}>Clear Palette</Button>
+              <Button variant="contained" color="primary" onClick={addRandomColor} disabled={colors.length >= maxColor}>Random Color</Button>
+            </div>
+            <ColorPickerForm
+              paletteIsFull={colors.length >= maxColor}
+              addNewColor={addNewColor}
+              colors={colors}
+            />
+          </div>
         </div>
-        <ColorPickerForm
-          paletteIsFull={colors.length >= maxColor}
-          addNewColor={addNewColor}
-          colors={colors}
-        />
       </Drawer>
       <main
         className={clsx(classes.content, {
