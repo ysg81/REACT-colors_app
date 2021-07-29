@@ -1,5 +1,5 @@
 import './App.css';
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Palette from './components/Palette';
 import PaletteList from './components/PaletteList'
@@ -9,13 +9,18 @@ import seedColors from './seedColors'
 import { generatePalette } from './colorHelper'
 
 function App() {
-  const [palette, setPalette] = useState(seedColors)
+  const saveToLocal = JSON.parse(window.localStorage.getItem("palette"))
+  const [palette, setPalette] = useState(saveToLocal || seedColors)
   const findPalette = (id) => {
     return generatePalette(palette.find(p => p.id === id))
   }
   const savePalette = (newPalette) => {
     setPalette([...palette, newPalette])
   }
+  useEffect(() => {
+    window.localStorage.setItem("palette",JSON.stringify(palette))
+  }, [palette])
+
   return (
     <Switch>
       <Route exact path="/" render={(routeProps) => <PaletteList palettes={palette} {...routeProps}/>}/>

@@ -66,7 +66,7 @@ function PaletteFormNav(props) {
         </Toolbar>
         <div className={classes.navBtns}>
           <Link to="/" className={classes.link}>
-            <Button variant="contained" color="secondary" style={{textDecoration: "none"}} className={classes.button}>
+            <Button variant="contained" color="secondary" style={{textDecoration: "none", marginRight: "10px"}} className={classes.button}>
               Go Back
             </Button>
           </Link>

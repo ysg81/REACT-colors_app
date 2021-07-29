@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NewPalette(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [colors, setColors] = useState(props.palettes[0].colors)
   const [maxColor, setMaxColor] = useState(20)
 

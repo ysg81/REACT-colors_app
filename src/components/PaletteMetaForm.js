@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import {Picker} from 'emoji-mart'
 
 function PaletteMetaForm(props) {
   const [open, setOpen] = React.useState(false);
@@ -34,8 +35,8 @@ function PaletteMetaForm(props) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Input New Palette name
+      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+        Save
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
