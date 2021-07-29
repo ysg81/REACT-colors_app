@@ -6,12 +6,14 @@ import {withStyles} from '@material-ui/styles'
 const styles={
   container: {
     backgroundColor: "blue",
-    height: "100vh",
+    height: "100%",
     display: "flex",
     justifyContent: "center",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    // border: "5px solid green",
   },
   subcontainer: {
+    // border: "5px solid black",
     width: "50%",
     display: "flex",
     alignItems: "flex-start",
@@ -50,8 +52,15 @@ const styles={
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 30%)",
-    gridGap: "5%"
+    gridGap: "5%",
   },
+  minipalette:{
+    transition: "0.3s",
+    "&:hover": {
+      transform: "translateY(-6px)",
+      boxShadow: "0px 12px 12px rgba(0,0,0,0.6)"
+    }
+  }
 
 }
 function PaletteList(props) {
@@ -59,7 +68,7 @@ function PaletteList(props) {
     props.history.push(`/palette/${id}`)
   )
 
-  const {palettes} = props
+  const {palettes, deletePalette} = props
   const {classes} = props
 
   return (
@@ -69,13 +78,20 @@ function PaletteList(props) {
           <h1>React Colors</h1>
           <Link to="/palette/new">Create Palette</Link>
         </nav>
-        <div className={classes.palettes}>
+
+        <div className={classes.palettes}>  
           {palettes.map(palette => (
-            <Link to={`/palette/${palette.id}`}>
-              <MiniPalette {...palette} handleClick={goToPalette} />
+            <Link to={`/palette/${palette.id}`} className={classes.minipalette}>
+              <MiniPalette {...palette}
+                key={palette.id}
+                id={palette.id}
+                deletePalette={deletePalette}
+                handleClick={goToPalette} 
+              />
             </Link>
             ))}
         </div>
+
       </div>
     </div>
   )

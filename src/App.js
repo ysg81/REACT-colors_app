@@ -1,4 +1,5 @@
 import './App.css';
+import React,{useState, useEffect} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import Palette from './components/Palette';
 import PaletteList from './components/PaletteList'
@@ -8,15 +9,27 @@ import seedColors from './seedColors'
 import { generatePalette } from './colorHelper'
 
 function App() {
-
+  const saveToLocal = JSON.parse(window.localStorage.getItem("palette"))
+  const [palette, setPalette] = useState(saveToLocal || seedColors)
   const findPalette = (id) => {
-    return generatePalette(seedColors.find(p => p.id === id))
+    return generatePalette(palette.find(p => p.id === id))
   }
+  const savePalette = (newPalette) => {
+    setPalette([...palette, newPalette])
+  }
+  const deletePalette = (id) => {
+    const remain = palette.filter(p => p.id !== id)
+    console.log(remain)
+    setPalette(remain)
+  }
+  useEffect(() => {
+    window.localStorage.setItem("palette",JSON.stringify(palette))
+  }, [palette])
 
   return (
     <Switch>
-      <Route exact path="/" render={(routeProps) => <PaletteList palettes={seedColors} {...routeProps}/>}/>
-      <Route exact path="/palette/new" render={() => <NewPalette/>}/>
+      <Route exact path="/" render={(routeProps) => <PaletteList palettes={palette} deletePalette={deletePalette} {...routeProps}/>}/>
+      <Route exact path="/palette/new" render={(routeProps) => <NewPalette savePalette={savePalette} palettes={palette} {...routeProps}/>}/>
       <Route exact path="/palette/:id"  render={(routeProps) => (
         <Palette palette={findPalette(routeProps.match.params.id)}/> 
       )}/>
