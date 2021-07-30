@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/REACT-colors_app/static/css/main.4c16d1cf.chunk.css",
-    "main.js": "/REACT-colors_app/static/js/main.ef16165c.chunk.js",
-    "main.js.map": "/REACT-colors_app/static/js/main.ef16165c.chunk.js.map",
+    "main.js": "/REACT-colors_app/static/js/main.21b7fc9c.chunk.js",
+    "main.js.map": "/REACT-colors_app/static/js/main.21b7fc9c.chunk.js.map",
     "runtime-main.js": "/REACT-colors_app/static/js/runtime-main.604901cf.js",
     "runtime-main.js.map": "/REACT-colors_app/static/js/runtime-main.604901cf.js.map",
     "static/css/2.4a35ef0a.chunk.css": "/REACT-colors_app/static/css/2.4a35ef0a.chunk.css",
-    "static/js/2.57f2561d.chunk.js": "/REACT-colors_app/static/js/2.57f2561d.chunk.js",
-    "static/js/2.57f2561d.chunk.js.map": "/REACT-colors_app/static/js/2.57f2561d.chunk.js.map",
+    "static/js/2.470a7793.chunk.js": "/REACT-colors_app/static/js/2.470a7793.chunk.js",
+    "static/js/2.470a7793.chunk.js.map": "/REACT-colors_app/static/js/2.470a7793.chunk.js.map",
     "static/js/3.f43c30df.chunk.js": "/REACT-colors_app/static/js/3.f43c30df.chunk.js",
     "static/js/3.f43c30df.chunk.js.map": "/REACT-colors_app/static/js/3.f43c30df.chunk.js.map",
     "index.html": "/REACT-colors_app/index.html",
     "static/css/2.4a35ef0a.chunk.css.map": "/REACT-colors_app/static/css/2.4a35ef0a.chunk.css.map",
     "static/css/main.4c16d1cf.chunk.css.map": "/REACT-colors_app/static/css/main.4c16d1cf.chunk.css.map",
-    "static/js/2.57f2561d.chunk.js.LICENSE.txt": "/REACT-colors_app/static/js/2.57f2561d.chunk.js.LICENSE.txt"
+    "static/js/2.470a7793.chunk.js.LICENSE.txt": "/REACT-colors_app/static/js/2.470a7793.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.604901cf.js",
     "static/css/2.4a35ef0a.chunk.css",
-    "static/js/2.57f2561d.chunk.js",
+    "static/js/2.470a7793.chunk.js",
     "static/css/main.4c16d1cf.chunk.css",
-    "static/js/main.ef16165c.chunk.js"
+    "static/js/main.21b7fc9c.chunk.js"
   ]
 }
