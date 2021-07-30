@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/REACT-colors_app/static/css/main.4c16d1cf.chunk.css",
-    "main.js": "/REACT-colors_app/static/js/main.21b7fc9c.chunk.js",
-    "main.js.map": "/REACT-colors_app/static/js/main.21b7fc9c.chunk.js.map",
+    "main.js": "/REACT-colors_app/static/js/main.b0de7c0d.chunk.js",
+    "main.js.map": "/REACT-colors_app/static/js/main.b0de7c0d.chunk.js.map",
     "runtime-main.js": "/REACT-colors_app/static/js/runtime-main.604901cf.js",
     "runtime-main.js.map": "/REACT-colors_app/static/js/runtime-main.604901cf.js.map",
     "static/css/2.4a35ef0a.chunk.css": "/REACT-colors_app/static/css/2.4a35ef0a.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.4a35ef0a.chunk.css",
     "static/js/2.470a7793.chunk.js",
     "static/css/main.4c16d1cf.chunk.css",
-    "static/js/main.21b7fc9c.chunk.js"
+    "static/js/main.b0de7c0d.chunk.js"
   ]
 }
