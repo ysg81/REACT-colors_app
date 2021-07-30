@@ -21,7 +21,8 @@ const styles = ({
     top: "50%",
     transform: "translateY(-50%)",
     display: "flex",
-    margin: "0px 14px"
+    margin: "0px 14px",
+    border: "1px solid black"
   },
   button: {
     "& a": {
@@ -30,7 +31,11 @@ const styles = ({
   },
   link: {
     textDecoration: "none"
-  }
+  },
+  // "@media screen and (max-width: 768px)": {
+  // },
+  // "@media screen and (max-width: 576px)": {
+  // }
 })
 
 function PaletteFormNav(props) {
