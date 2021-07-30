@@ -1,4 +1,10 @@
-***
+# REACT-colors_app
+
+> 나만의 Palette 만들기 앱
+### 사용한 기술
++ React
+
+
 #### 리액트 깃허브 베포 방법
 
 1. 프로젝트에 gh-pages 패키지 설치
@@ -26,3 +32,14 @@ npm install gh-pages --save-dev
 ```
 npm run deploy
 ```
+
+5. 라우터를 이용한 react app 베포 방법
+```
+1. HashRouter 사용
+2. BrowserRouter에 basename 사용
+  -> basename="/URL"
+```
+
+#### DEMO
+-  https://ysg81.github.io/REACT-colors_app/
+
