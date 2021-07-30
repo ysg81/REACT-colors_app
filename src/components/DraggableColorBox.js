@@ -11,7 +11,19 @@ const styles = {
     position: "relative",
     display: "inline-block",
     cursor: "pointer",
-    marginButton: "-3.5px"
+    marginButton: "-3.5px",
+    "@media screen and (max-width: 1024px)": {
+      width: "25%",
+      height: "20%"
+    },
+    "@media screen and (max-width: 768px)": {
+      width: "50%",
+      height: "10%"
+    },
+    "@media screen and (max-width: 576px)": {
+      width: "100%",
+      height: "5%"
+    }
   },
   boxContent: {
     position: "absolute",
@@ -32,6 +44,9 @@ const styles = {
     "&:hover" :{
       color: "white",
       transform: "scale(1.2)"
+    },
+    "@media screen and (max-width: 576px)": {
+      marginBottom: "-10px"
     }
   }
 }

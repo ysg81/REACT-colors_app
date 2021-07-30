@@ -22,29 +22,34 @@ const styles = ({
     transform: "translateY(-50%)",
     display: "flex",
     margin: "0px 14px",
-    border: "1px solid black"
+    // border: "1px solid black"
   },
   button: {
     "& a": {
       textDecoration: "none"
+    },
+    "@media screen and (max-width: 576px)": {
+      width: "60px",
+      height: "60px",
+      fontSize: "6px"
     }
   },
   link: {
     textDecoration: "none"
   },
-  // "@media screen and (max-width: 768px)": {
-  // },
-  // "@media screen and (max-width: 576px)": {
-  // }
+  span: {
+    fontSize: "20px",
+    "@media screen and (max-width: 576px)": {
+      marginLeft: "-16px",
+      fontSize: "16px",
+    }
+  }
 })
 
 function PaletteFormNav(props) {
 
   const {open, classes, handleDrawerOpen, handleSubmit} = props
-  // const [formShowing, setFormShowing] = useState(true)
-  // const showform = () => {
-  //   setFormShowing(true)
-  // }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -65,7 +70,7 @@ function PaletteFormNav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap className={classes.span}>
             Create A Palette
           </Typography>
         </Toolbar>

@@ -6,19 +6,26 @@ import {withStyles} from '@material-ui/styles'
 const styles={
   container: {
     backgroundColor: "blue",
-    height: "100%",
+    height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "flex-start",
-    // border: "5px solid green",
+    overflow: "scroll",
+    overflowX: "hidden"
   },
   subcontainer: {
-    // border: "5px solid black",
     width: "50%",
     display: "flex",
     alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap",
+    "@media screen and (max-width: 1024px)": {
+      width: "70%"
+    },
+    "@media screen and (max-width: 768px)": {
+      width: "80%"
+    },
+
   },
   nav: {
     display: "flex",
@@ -53,6 +60,12 @@ const styles={
     display: "grid",
     gridTemplateColumns: "repeat(3, 30%)",
     gridGap: "5%",
+    "@media screen and (max-width: 768px)": {
+      gridTemplateColumns: "repeat(2, 50%)",
+    },
+    "@media screen and (max-width: 576px)": {
+      gridTemplateColumns: "repeat(1, 100%)",
+    }
   },
   minipalette:{
     transition: "0.3s",
