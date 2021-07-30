@@ -8,8 +8,22 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import {Picker} from 'emoji-mart'
+import {withStyles} from '@material-ui/styles'
+
+const styles = {
+  button: {
+    "@media screen and (max-width: 576px)": {
+      width: "60px",
+      height: "60px",
+      fontSize: "6px"
+    }
+  }
+}
 
 function PaletteMetaForm(props) {
+
+
+  const {classes} = props
   const [open, setOpen] = React.useState(false);
   const [newPaletteName, setNewPaletteName] = useState("")
 
@@ -35,7 +49,7 @@ function PaletteMetaForm(props) {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen} className={classes.button}>
         Save
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -79,4 +93,4 @@ function PaletteMetaForm(props) {
   );
 }
 
-export default PaletteMetaForm
+export default withStyles(styles)(PaletteMetaForm)
