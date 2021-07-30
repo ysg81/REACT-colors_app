@@ -76,7 +76,6 @@ function MiniPalette(props) {
   const deletePalette = (evt) => {
     evt.stopPropagation()
     evt.preventDefault()
-    alert('Deleted!')
     props.deletePalette(id)
   }
   return (
